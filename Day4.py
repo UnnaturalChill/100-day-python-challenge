@@ -1,0 +1,2 @@
+print(" A long long time ago in a faraway land Called", "\033[32m", "Gensokyo", "\033[0m", "there was a fairy called", "\033[36m", "Cirno.", "\033[0m", 
+"She likes to freeze frogs at the", "\033[34m", "Misty lake", "\033[0m", "near the", "\033[31m", "Scarlet Devin Manshion.")
