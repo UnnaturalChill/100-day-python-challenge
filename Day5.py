@@ -23,27 +23,31 @@ if Cirno == "y":
     print("You are\033[34m Cirno\033[0m!")
 else: 
     print("Well, not everyone can be based!")
+print()
 
 Sakuya = input("You use pads: ")
 if Sakuya == "y":
-    print("You are\037[0m Sakuya Izayoi\033[0m!")
+    print("You are\033[37m Sakuya Izayoi\033[0m!")
 else: 
     print("I knew they were real!")
-    
+print()  
+
 Clownpiece = input("You like America: ")
 if Clownpiece == "y":
-    print("You are\035[0m Clownpiece\033[0m!")
+    print("You are\033[35m Clownpiece\033[0m!")
 else: 
     print("So you are on the Lunarians side after all!? Junko will not like this...")
-    
+print()
+
 Remilia = input("You live in a big manshion: ")
 if Remilia == "y":
-    print("You are\033[0m Remilia Scarlet\033[0m!")
+    print("You are\033[36m Remilia Scarlet\033[0m!")
 else: 
     print("Sipping tea isn't your thing, eh?")
+print()
 
 Flandre = input("You live in a basement: ")
 if Flandre == "y":
-    print("You are\033[0m Flandre Scarlet\033[0m!")
+    print("You are\033[32m Flandre Scarlet\033[0m!")
 else: 
     print("You would rather socialize and go outside? Shame.")
