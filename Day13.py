@@ -11,17 +11,17 @@ print()
 percentage = (yourScore / maxPossibleScore) * 100
 letterGrade = ""
 
-if percentage >= 90:
+if percentage >= .90:
   letterGrade = "A+"
-elif percentage >= 80 or percentage <= 89:
+elif percentage >= .80 or percentage <= .89:
   letterGrade = "A"
-elif percentage >= 70 or percentage <= 79:
+elif percentage >= .70 or percentage <= .79:
   letterGrade = "B"
-elif percentage >= 60 or percentage <= 69:
+elif percentage >= .60 or percentage <= .69:
   letterGrade = "C"
-elif percentage >= 50 or percentage <= 59:
+elif percentage >= .50 or percentage <= .59:
   letterGrade = "D"
-elif percentage < 50:
+elif percentage < .50:
   letterGrade = "U"
 else:
   print("You have entered an invalid score.")
