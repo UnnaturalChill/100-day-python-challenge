@@ -54,3 +54,4 @@ print("It took you\033[32m", counter1, "\033[0mtries to guess the first missing 
 print("It took you\033[33m", counter2, "\033[0mtries to guess the second missing part!")
 print("It took you\033[31m", counter3, "\033[0mtries to guess the third missing part!")
 print("It took you a total of\033[34m", total, "\033[0mattempts to guess all the missing parts!")
+input("Press enter to exit...")
