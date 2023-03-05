@@ -26,5 +26,7 @@ while True:
     print("Your guess was too high.")
     retries += 1
     continue
+  else:
+    print("You have to guess a number between 1 and 1000.")
 
 input("It took you {} retries to get it correct.".format(retries))
