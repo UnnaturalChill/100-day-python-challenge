@@ -29,4 +29,4 @@ while True:
   else:
     print("You have to guess a number between 1 and 1000.")
 
-input("It took you {} retries to get it correct.".format(retries))
+input(f"It took you {retries} retries to get it correct.")
