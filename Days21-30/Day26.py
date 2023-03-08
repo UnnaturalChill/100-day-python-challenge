@@ -25,7 +25,7 @@ while True:
   time.sleep(1)
   
   print()
-  print("Press anything else to see the manu again")
+  print("Press anything else to see the menu again")
   print()
   
   userInput = input("")
