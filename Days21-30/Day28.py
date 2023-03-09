@@ -67,7 +67,7 @@ print(f"""Defense:  🛡️ \033[36m{character2Defense}\033[0m""") #! WIP
 print()
 print(f"Battle between {character1Name} and {character2Name} is starting!")
 time.sleep(3)
-os.system("clear")
+os.system("cls")
 
 roundCounter = 1
 while True:
@@ -99,7 +99,7 @@ while True:
     roundCounter += 1
     time.sleep(1)
     input("Press enter to continue to the next round...")
-    os.system("clear")
+    os.system("cls")
     break
   elif character1Roll < character2Roll:
     print(f"{character2Name} wins the first blow!")
@@ -119,14 +119,14 @@ while True:
     roundCounter += 1
     time.sleep(1)
     input("Press enter to continue to the next round...")
-    os.system("clear")
+    os.system("cls")
     break
   else:
     print("It's a draw!")
     time.sleep(.5)
     print("Continuing to the next round...")
     time.sleep(1)
-    os.system("clear")
+    os.system("cls")
     break
   
 while True:
@@ -140,7 +140,7 @@ while True:
     print("--------------------\n")
     time.sleep(.5)
     input(f"The battle has ended! {character2Name} has won in {roundCounter} rounds!")
-    os.system("clear")
+    os.system("cls")
     break
   elif character2Health <= 0:
     time.sleep(.5)
@@ -152,7 +152,7 @@ while True:
     print("--------------------\n")
     time.sleep(.5)
     input(f"The battle has ended! {character1Name} has won in {roundCounter} rounds!")
-    os.system("clear")
+    os.system("cls")
     break
   else:
     print("⚔️ BATTLE TIME ⚔️\n")
@@ -180,7 +180,7 @@ while True:
       roundCounter += 1
       time.sleep(1)
       input("Press enter to continue to the next round...")
-      os.system("clear")
+      os.system("cls")
       continue
     elif character1Roll < character2Roll:
       print(f"{character2Name} wins the first blow!")
@@ -200,12 +200,12 @@ while True:
       roundCounter += 1
       time.sleep(1)
       input("Press enter to continue to the next round...")
-      os.system("clear")
+      os.system("cls")
       continue
     else:
       print("It's a draw!\n")
       time.sleep(.5)
       print("Continuing to the next round...\n")
       time.sleep(1)
-      os.system("clear")
+      os.system("cls")
       continue
