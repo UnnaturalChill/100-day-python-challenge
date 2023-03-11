@@ -49,3 +49,5 @@ while True:
     break
   else:
     print("Invalid choice")
+    time.sleep(.5)
+    os.system("cls")
