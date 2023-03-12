@@ -7,6 +7,7 @@ add = "\033[0;32madd\033[0m"
 edit = "\033[0;35medit\033[0m"
 remove = "\033[0;33mremove\033[0m"
 delete = "\033[0;31mdelete\033[0m"
+settings = "\033[4msettings\033[0m"
 exitList = "\033[3mexit\033[0m"
 invalidInput = "\033[?25l\033[0;31m<Invalid input>\033[0m"
 warningText = "\033[31m\033[?25lThis item is already in the list!\033[0m"
@@ -17,7 +18,7 @@ def viewList():
   print("\033[4mTo-Do List\033[0m")
   for item in todoList:
     print(item)
-  time.sleep(1.5)
+  input("\033[?25lPress enter to continue...")
   os.system("cls")
 
 def addItem():
@@ -132,7 +133,7 @@ def deleteList():
 while True:
   os.system("cls")
   print("                      \033[?25hTo-Do List Manager\n                     ────────────────────\n")
-  choice = input(f"Do you want to {view}, {add}, {edit}, {remove} or {delete} a To-Do list?\nClose by typing {exitList}.\n> ")
+  choice = input(f"Do you want to {view} the list, {add} an item, {edit} an item, {remove} an item or {delete} the list?\nClose by typing {exitList}.\n> ")
   if choice == "view":
     viewList()
   elif choice == "add":
