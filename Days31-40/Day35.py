@@ -18,7 +18,7 @@ def viewList():
   print("\033[4mTo-Do List\033[0m")
   for item in todoList:
     print(item)
-  input("\033[?25lPress enter to continue...")
+  input("\n\033[?25lPress enter to continue...")
   os.system("cls")
 
 def addItem():
