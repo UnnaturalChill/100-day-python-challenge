@@ -9,11 +9,12 @@ remove = "\033[0;33mremove\033[0m"
 delete = "\033[0;31mdelete\033[0m"
 exitList = "\033[3mexit\033[0m"
 invalidInput = "\033[?25l\033[0;31m<Invalid input>\033[0m"
+warningText = "\033[31m\033[?25lThis item is already in the list!\033[0m"
 
 def viewList():
   os.system("cls")
-  print("                      \033[?25l\033[0mTo-Do List Manager\n                     ────────────────────\n")
-  print("To-Do List\n──────────")
+  print("                      \033[?25l\033[0mTo-Do List Manager\n                     ────────────────────")
+  print("\033[4mTo-Do List\033[0m")
   for item in todoList:
     print(item)
   time.sleep(1.5)
@@ -21,10 +22,9 @@ def viewList():
 
 def addItem():
   os.system("cls")
-  warningText = "\033[31This item is already in the list!\033[0m"
   while True:
     print("                      \033[0mTo-Do List Manager\n                     ────────────────────\n")
-    item = input("Add new todo list item: ")
+    item = input("Add new todo list item: ").title()
     if item not in todoList:
       todoList.append(item)
       break
@@ -42,66 +42,74 @@ def removeItem():
     for item in todoList:
       print(item)
     print()
-    itemToRemove = input(f"Which item would you like to {remove}?: ")
-    confirmation = input(f"Are you sure you want to {remove} this item?: ")
-    if confirmation == "yes":
-      if itemToRemove in todoList:
-        todoList.remove(itemToRemove)
-        print(f"\033[32m{itemToRemove} has been successfully removed\033[0m")
-        time.sleep(1)
-        os.system("cls")
-        break
-      else:
-        print("\033[31m<Item is not in the list>\033[0m")
-        time.sleep(1)
-        os.system("cls")
-        continue
-    elif confirmation == "no":
-      print("\033[33m<No items were removed>\033[0m")
-      time.sleep(1)
+    itemToRemove = input(f'Which item would you like to {remove}?("exit" to exit): ').title()
+    if itemToRemove == "Exit":
+      print("\033[31m\033[?25lExiting...\033[0m")
+      time.sleep(0.3)
       os.system("cls")
       break
-    else:
+    if itemToRemove not in todoList:
+      print(f"\033[31m\033[?25l<{itemToRemove} is not in the list>\033[0m")
+      time.sleep(1)
+      os.system("cls")
+      continue
+    confirmation = input(f"Are you sure you want to {remove} this item?: ")
+    if confirmation == "no":
+      print("\033[33m\033[?25l<No items were removed>\033[0m")
+      time.sleep(1)
+      os.system("cls")
+      continue
+    if confirmation != "yes" and confirmation!= "no" :
       print(invalidInput)
       time.sleep(0.7)
       os.system("cls")
       continue
+    if itemToRemove in todoList and confirmation == "yes":
+      todoList.remove(itemToRemove)
+      print(f"\033[32m\033[?25l{itemToRemove} has been successfully removed\033[0m")
+      time.sleep(1)
+      os.system("cls")
+      break
 
-#! Broken
 def editItem():
   os.system("cls")
   while True:
     print("                      \033[?25h\033[0mTo-Do List Manager\n                     ────────────────────")
-    print("\033[4mTodo List:\033[0m")
+    print("\033[4mTodo List:\033[0m\n")
     for item in todoList:
       print(item)
     print()
-    itemToEdit = input(f"Which item would you like to {edit}?: ")
-    if itemToEdit == item in todoList:
-      confirmation = input(f"Are you sure you want to {edit} this item?: ")
-      if confirmation == "yes":
-        editedItem = input(f"What would you like to change {itemToEdit} to?: ")
-        for i in range(0, len(todoList)):
-          todoList[i] = editedItem
-        print(f"\033[32m<{item} has been successfully edited>\033[0m")
-        time.sleep(1)
-        os.system("cls")
-        break
-      elif confirmation == "no":
-        print("\033[33m<No items were edited>\033[0m")
-        time.sleep(1)
-        os.system("cls")
-        break
-      else:
-        print(invalidInput)
-        time.sleep(0.7)
-        os.system("cls")
-        continue
+    itemToEdit = input(f'Which item would you like to {edit}?("exit" to exit): ').title()
+    if itemToEdit == "Exit":
+      print("\033[31m\033[?25lExiting...\033[0m")
+      time.sleep(0.3)
+      os.system("cls")
+      break
     if itemToEdit not in todoList:
-      print(f"\033[31m<{itemToEdit} is not in the list>\033[0m")
+      print(f"\033[31m\033[?25l<{itemToEdit} is not in the list>\033[0m")
       time.sleep(1)
       os.system("cls")
       continue
+    newItem = input(f"What would you like to change {itemToEdit} to?: ").title()
+    confirmation = input(f'Are you sure you want to {edit} this item?: ')
+    if confirmation == "no":
+      print("\033[33m\033[?25l<No items were edited>\033[0m")
+      time.sleep(1)
+      os.system("cls")
+      continue
+    if confirmation != "yes" and confirmation!= "no" :
+      print(invalidInput)
+      time.sleep(0.7)
+      os.system("cls")
+      continue
+    for i in range(0, len(todoList)):
+      if todoList[i] == itemToEdit and confirmation == "yes":
+        todoList[i] = newItem
+        print(f"\033[32m\033[?25l<{item} has been successfully edited>\033[0m")
+        time.sleep(1)
+        os.system("cls")
+        break
+    break
 
 def deleteList():
   os.system("cls")
@@ -109,10 +117,17 @@ def deleteList():
   deleteToDoList = input(f"Are you sure you want to {delete} the list?: ")
   if deleteToDoList == "yes":
     todoList.clear()
-    print(f"\033[?25lTo-Do list has been successfully deleted")
+    print(f"\033[31m\033[?25lTo-Do list has been successfully deleted\033[0m")
     time.sleep(1)
     os.system("cls")
-    return todoList
+  elif deleteToDoList == "no":
+    print(f"\033[33m\033[?25l<List deletion terminated>\033[0m")
+    time.sleep(1)
+    os.system("cls")
+  else:
+    print(invalidInput)
+    time.sleep(0.7)
+    os.system("cls")
 
 while True:
   os.system("cls")
@@ -129,7 +144,7 @@ while True:
   elif choice == "delete":
     deleteList()
   elif choice == "exit":
-    print("\033[0;31mExiting...\033[0m")
+    print("\033[31m\033[?25lExiting...\033[0m")
     time.sleep(0.3)
     os.system("cls")
     break
